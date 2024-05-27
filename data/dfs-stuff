@@ -1,0 +1,24 @@
+%sql
+SELECT * FROM `rhodel00`.`cur8data`.`namelist_00`;
+
+-------------------
+
+query = "SELECT * FROM `rhodel00`.`cur8data`.`namelist_00`;"
+df = spark.sql(query)
+
+-------------------
+
+file_location = "dbfs:/FileStore/tables/namelist00.csv"
+file_type = "csv"
+
+infer_schema = "true"  #"false"
+first_row_is_header = "true" #'false'
+delimiter = ","
+
+df = spark.read.format(file_type) \
+  .option("inferSchema", infer_schema) \
+  .option("header", first_row_is_header) \
+  .option("sep", delimiter) \
+  .load(file_location)
+
+display(df)
