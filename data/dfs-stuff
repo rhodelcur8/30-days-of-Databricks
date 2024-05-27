@@ -22,3 +22,18 @@ df = spark.read.format(file_type) \
   .load(file_location)
 
 display(df)
+
+-------------------
+%fs mkdirs /FileStore/MoStuf
+
+#dbutils.fs.mkdirs ('/FileStore/MoStuf/temp1')
+dbutils.fs.cp ('/FileStore/tables/namelist00.csv', '/FileStore/MoStuf/temp1/namelist00Copy.csv')
+
+dbutils.fs.head("FileStore/MoStuf/temp1/namelist00Copy.csv")
+#mv 
+
+%fs rm -r /FileStore/tables/*.csv
+-------------------
+-------------------
+-------------------
+-------------------
