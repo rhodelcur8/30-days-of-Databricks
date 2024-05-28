@@ -1,0 +1,24 @@
+!python --version
+%sh python --version
+
+%sh pip --version
+
+%pip list
+#list python libraries
+
+%conda -version
+
+--show pandas details - already installed --
+%pip show pandas
+
+--langchain not pre-installed--
+%pip show langchain
+
+%pip install langchain
+
+dbutils.library.restartPython()
+
+--when uninstall package in cluster, a restart is neede--
+--notebook packages will be removed when cluster restarts--
+
+
